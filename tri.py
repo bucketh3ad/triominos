@@ -18,7 +18,7 @@ def showScores():
 
 def startRound():
     showScores()
-    firstPlayer = int(input("Enter the number of the first player"))-1
+    firstPlayer = int(input("Enter the number of the first player: "))-1
     currentPlayer = firstPlayer
     scores[players[firstPlayer]] += 10
     winner = False
@@ -26,13 +26,13 @@ def startRound():
         newscore = input("Enter the score for " + players[currentPlayer] + ": ")
         if newscore[-1] == "w":
             winner = True
-            newscore = newscore[:-1] + 25
+            newscore = int(newscore[:-1]) + 25
         scores[players[currentPlayer]] += int(newscore)
         showScores()
         if not winner:
             currentPlayer = (currentPlayer + 1) % playerCount
     while winner:
-        newscore = int(input("Enter a subtotal or 0 to finish"))
+        newscore = int(input("Enter a subtotal or 0 to finish: "))
         scores[players[currentPlayer]] += newscore
         if newscore == 0:
             showScores()
