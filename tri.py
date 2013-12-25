@@ -43,6 +43,7 @@ def startRound():
                 else:
                     winplay = players[currentPlayer]
                 print("WINNER! " + winplay)
+                return "exit"
             return
 
 def setScore(player, score):
