@@ -4,8 +4,6 @@ scores = {}
 
 def newGame():
     global playerCount
-    global players
-    global scores
     playerCount = int(input("Enter the number of players: "))
     for i in range(playerCount):
         players.append(input("Enter the name for player " + str(1+i) + ": "))
@@ -39,6 +37,5 @@ def startRound():
             return
 
 def setScore(player, score):
-    global scores
     scores[player] = score
 
