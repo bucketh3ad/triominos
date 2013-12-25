@@ -20,12 +20,15 @@ def startRound():
     currentPlayer = firstPlayer
     scores[players[firstPlayer]] += 10
     winner = False
+    winlist = []
     while not winner:
         newscore = input("Enter the score for " + players[currentPlayer] + ": ")
         if newscore[-1] == "w":
             winner = True
             newscore = int(newscore[:-1]) + 25
         scores[players[currentPlayer]] += int(newscore)
+        if scores[players[currentPlayer]] >= 400:
+            winlist.append(players[currentPlayer])
         showScores()
         if not winner:
             currentPlayer = (currentPlayer + 1) % playerCount
@@ -34,6 +37,12 @@ def startRound():
         scores[players[currentPlayer]] += newscore
         if newscore == 0:
             showScores()
+            if max(scores.values()) >= 400:
+                if len(winlist) == 1:
+                    winplay = winlist[0]
+                else:
+                    winplay = players[currentPlayer]
+                print("WINNER! " + winplay)
             return
 
 def setScore(player, score):
