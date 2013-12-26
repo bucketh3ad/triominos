@@ -38,10 +38,10 @@ def startRound():
         if newscore == 0:
             showScores()
             if max(scores.values()) >= 400:
-                if len(winlist) == 1:
-                    winplay = winlist[0]
-                else:
+                if players[currentPlayer] in winlist:
                     winplay = players[currentPlayer]
+                else:
+                    winplay = winlist[0] 
                 print("WINNER! " + winplay)
                 return "exit"
             return
