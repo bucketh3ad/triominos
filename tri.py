@@ -60,6 +60,7 @@ def startRound():
                 else:
                     winplay = winlist[0] 
                 print("WINNER! " + winplay)
+                input()
                 return "exit"
             return
 
